@@ -1,6 +1,11 @@
-Thanks for downloading this template!
+# BillSureMD – Medical Billing Website
 
-Template Name: Clinic
-Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+BillSureMD is a modern, responsive website for a professional medical billing business. It is designed to communicate trust, simplify service inquiries, and support healthcare providers with efficient billing solutions.
+
+## 📌 Features
+
+- Clean and responsive layout using HTML5 & CSS3
+- Interactive contact form integrated with Google Apps Script for form submission
+- Custom success modal popup for user-friendly confirmation
+- Organized structure with modular CSS and JS
+- Built using Bootstrap 5 for rapid development
