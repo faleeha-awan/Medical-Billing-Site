@@ -335,7 +335,7 @@
   const formObject = {};
   formData.forEach((value, key) => formObject[key] = value);
 
-  fetch("https://script.google.com/macros/s/AKfycbz05ZS1qYKbjbyUQsYOBXJgT8HZt0_ydjp9R4xkSy84WCLi7YN0GpKreaDhc9j19qypjg/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxZ33rUqEUfdAsBaBX6Y29HzGV59QnPtkLh7g96zHoKnnOhsS48dEypB9RupijYb0eBXw/exec", {
     method: "POST",
     body: new URLSearchParams(formObject),
   })
