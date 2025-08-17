@@ -6307,3 +6307,9 @@ section,
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+/* Fix: Add space above the trust badges */
+.trust-badges {
+  margin-top: 80px; /* adjust this number if needed */
+}
