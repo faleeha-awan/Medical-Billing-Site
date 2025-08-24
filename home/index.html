@@ -28,6 +28,11 @@
   <!-- Main CSS File -->
   <link href="/assets//css/main.css" rel="stylesheet">
 
+  <!--slider for specialities-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
   <!-- Font Awesome CDN (Put this in your <head>) -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <!-- =======================================================
@@ -199,16 +204,17 @@
 
               <div class="stats-grid">
                 <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="650" data-purecounter-duration="1"></div>
+                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"></div>
                   <div class="stat-label">Providers</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="750" data-purecounter-duration="1"></div>
+                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1"></div>
                   <div class="stat-label">Credentialing Cases Handled</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="1"></div>
-                  <div class="stat-label">Claims Processed</div>
+                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1"></div>
+                  <span>Million</span>
+                  <div class="stat-label">Claims billed</div>
                 </div>
               </div>
 
@@ -221,7 +227,7 @@
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
             <div class="about-visual">
               <div class="main-image">
-                <img src="/assets//img/home_page/home.jpg" alt="Modern medical facility" class="img-fluid">
+                <img src="/assets//img/home_page/credentialing.jpg" alt="Modern medical facility" class="img-fluid">
               </div>
               <div class="floating-card">
                 <div class="card-content">
@@ -253,7 +259,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2 style="color: rgb(3, 3, 109);"> <b>Unified Medical Billing And Coding Services</b></h2>
+        <h2 style="color: rgb(3, 3, 109);"> <b>Services We Offer</b></h2>
         <h4 style="color: rgb(66, 65, 65);">The Solution You Need</h4>
         <p style="font-size: 13px;">Simplify the complexities of healthcare billing through our all-in one medical billing and coding services, designed to improve claim accuracy and maximize revenue. Experience precision and compliance with our medical coding and billing solutions to enhance the RCM process of your practice.</p>
       </div><!-- End Section Title -->
@@ -463,8 +469,8 @@
                   <img src="/assets//img/home_page/network.webp" alt="Emergency Care" class="img-fluid" loading="lazy">
                 </div>
                 <div class="specialty-content">
-                  <h5>Supporting 650+ Healthcare Providers</h5>
-                  <span>From solo practices to large groups, our platform empowers over 650 providers with efficient, stress-free billing services.</span>
+                  <h5>Supporting 100+ Healthcare Providers</h5>
+                  <span>From solo practices to large groups, our platform empowers over 100 providers with efficient, stress-free billing services.</span>
                 </div>
               </div>
             </div>
@@ -475,8 +481,8 @@
                   <img src="/assets//img/home_page/arrow.webp" alt="Advanced Tech" class="img-fluid" loading="lazy">
                 </div>
                 <div class="specialty-content">
-                  <h5> 5000+ Claims Successfully Processed</h5>
-                  <span>With over half a million claims submitted, our results speak for themselves. We ensure fast turnaround and fewer denials.</span>
+                  <h5> $50 M Claims Successfully Billed</h5>
+                  <span>With over 50 million claims submitted, our results speak for themselves. We ensure fast turnaround and fewer denials.</span>
                 </div>
               </div>
             </div>
@@ -488,7 +494,7 @@
 
     </section><!-- /Why Us Section -->
 
-    <!-- Specialities Section -->
+  
     <section id="call-to-action" class="call-to-action section light-background">
 
       <!-- Section Title -->
@@ -497,7 +503,168 @@
         <p style="font-size: 12px; color: rgb(66, 65, 65);">We offer tailored medical billing solutions across a wide range of specialties. Backed by years of experience and trusted by healthcare providers, <br> our team ensures accurate, specialty-specific billing that meets the highest industry standards.</p>
       </div><!-- End Section Title -->
 
-      <section class="specialties-section">
+       <section id="specialties" class="specialties-section">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Each specialty is a slide -->
+      <div class="swiper-slide">
+        <div class="hex-content">
+          <i class="fas fa-heartbeat"></i>
+          <span>Cardiology</span>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+         <div class="hex-content">
+            <i class="fas fa-child"></i>
+            <span>Pediatrics</span>
+          </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="hex-content">
+          <i class="fas fa-bone"></i>
+          <span>Orthopedics</span>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-vial"></i>
+                <span>Endocrinology</span>
+              </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-brain"></i>
+                <span>Neurology</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-user-md"></i>
+                <span>Psychiatry</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-allergies"></i>
+                <span>Dermatology</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="	fas fa-x-ray"></i>
+                <span>Radiology</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-spa"></i>
+                <span>Acupuncture</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-syringe"></i>
+                <span>Anesthesia</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-user-md"></i>
+                <span>Chiropractic</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-people-roof"></i>
+                <span>Family Medicine</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+          <i class="fas fa-disease"></i>
+          <span>Gastroenterology</span>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-head-side-mask"></i>
+                <span>Allergy & Immunology</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+       <div class="hex-content">
+                <i class="fas fa-brain"></i>
+                <span>Behavioral Health</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+       <div class="hex-content">
+                <i class="fas fa-truck-medical"></i>
+                <span>Emergency Medicine</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-user-md"></i>
+                <span>General Surgery</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-person-cane"></i>
+                <span>Geriatrics</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-droplet"></i>
+                <span>Hematology</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-hospital-user"></i>
+                <span>Hospitalists</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-biohazard"></i>
+                <span>Infectious Disease</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-biohazard"></i>
+                <span>Infectious Disease</span>
+              </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hex-content">
+                <i class="fas fa-user-doctor"></i>
+                <span>Internal Medicine</span>
+              </div>
+      </div>
+
+      <!-- Keep adding all your specialties here -->
+      
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+      <!--<section class="specialties-section">
         <ul class="hex-grid">
             <li class="hex">
               <div class="hex-content">
@@ -734,7 +901,7 @@
               </div>
             </li>
         </ul>
-      </section>
+      </section>-->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -805,7 +972,8 @@
 
       </div>
 
-    </section><!-- /Call To Action Section -->
+    </section>
+  
 
   </main>
 
@@ -932,6 +1100,31 @@
 
   <!-- Main JS File -->
   <script src="/assets//js/main.js"></script>
+  <script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,   // how many specialties visible at once
+    spaceBetween: 30,   // gap between cards
+    loop: true,         // infinite loop
+    autoplay: {
+      delay: 3000,      // auto-slide every 3s
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      1024: { slidesPerView: 4 },
+      768: { slidesPerView: 2 },
+      480: { slidesPerView: 1 }
+    }
+  });
+</script>
+
 
 </body>
 
