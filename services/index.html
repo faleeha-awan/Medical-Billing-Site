@@ -59,10 +59,13 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="/home/" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="/assets//img/home_page/logo.jpg" alt=""> 
-          <!--<h1 class="sitename">BillSureMD</h1>-->
+        <a href="/home/" class="logo d-flex align-items-center" aria-label="BillSureMD - Home">
+          <picture>
+            <source media="(min-width: 768px)" srcset="/assets/img/logo.webp" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/img/home_page/logo.jpg" type="image/jpeg">
+            <source media="(max-width: 767px)" srcset="/assets/img/logo.webp" type="image/webp">
+            <img src="/assets/img/home_page/logo.jpg" alt="BillSureMD - Medical Billing Services" loading="eager" width="200" height="52">
+          </picture>
         </a>
 
         <nav id="navmenu" class="navmenu">

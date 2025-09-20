@@ -5,36 +5,152 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>BillSureMD</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Professional medical billing services for healthcare providers. Maximize revenue with our expert billing, coding, and credentialing solutions.">
+  <meta name="keywords" content="medical billing, healthcare billing, revenue cycle management, medical coding, credentialing">
+
+  <!-- Performance and Resource Hints -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//kit.fontawesome.com">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/assets/css/main.css" as="style">
+  <link rel="preload" href="/assets/js/main.js" as="script">
+  <link rel="preload" href="/assets/img/home_page/logo.jpg" as="image" type="image/jpeg">
+  <link rel="preload" href="/assets/img/health/main_page.jpg" as="image" type="image/jpeg">
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    /* Critical Above-the-Fold CSS */
+    :root {
+      --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --heading-font: "Montserrat", sans-serif;
+      --background-color: #ffffff;
+      --default-color: #3c4049;
+      --heading-color: #112344;
+      --accent-color: #175cdd;
+      --contrast-color: #ffffff;
+      --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+      --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+      --font-size-4xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+      --touch-target-min: 44px;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: var(--default-font);
+      color: var(--default-color);
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 997;
+      background: var(--background-color);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skip-links {
+      position: absolute;
+      top: -200px;
+      left: 0;
+      width: 100%;
+      z-index: 10001;
+      background: var(--accent-color);
+      padding: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      transition: top 0.3s;
+    }
+    
+    .skip-links:focus-within { top: 0; }
+    
+    .hero {
+      padding: 120px 0 80px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero h1 {
+      font-size: var(--font-size-4xl);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--heading-color);
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      min-height: var(--touch-target-min);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      border: 2px solid var(--accent-color);
+    }
+    
+    @media (max-width: 767px) {
+      .hero { padding: 100px 0 60px 0; }
+      .hero h1 { font-size: clamp(2rem, 1.7rem + 1.5vw, 3rem); }
+    }
+  </style>
 
   <!-- Favicons -->
   <link href="/assets//img/favicon.png" rel="icon">
   <link href="/assets//img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  <!-- Optimized Font Loading -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <!-- Load only essential font weights for performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  </noscript>
 
-  <!-- Vendor CSS Files -->
-  <link href="/assets//vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets//vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assets//vendor/aos/aos.css" rel="stylesheet">
-  <link href="/assets//vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assets//vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="/assets//vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Critical CSS Files - Load Immediately -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/main.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="/assets//css/main.css" rel="stylesheet">
+  <!-- Non-Critical CSS Files - Load Asynchronously -->
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+  
+  <!-- Fallbacks for no-JS -->
+  <noscript>
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  </noscript>
 
-  <!--slider for specialities-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-  <!-- Font Awesome CDN (Put this in your <head>) -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Defer Non-Critical JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
   <!-- =======================================================
   * Template Name: Clinic
   * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
@@ -45,6 +161,13 @@
 </head>
 
 <body class="index-page">
+
+  <!-- Enhanced Skip Navigation Links for Accessibility -->
+  <div class="skip-links">
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+    <a href="#navmenu" class="skip-to-navigation">Skip to navigation</a>
+    <a href="#footer" class="skip-to-footer">Skip to footer</a>
+  </div>
 
   <header id="header" class="header fixed-top">
 
@@ -66,20 +189,26 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="/home/" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="/assets//img/home_page/logo.jpg" alt=""> 
+        <a href="/home/" class="logo d-flex align-items-center" aria-label="BillSureMD - Home">
+          <picture>
+            <source media="(min-width: 768px)" srcset="/assets/img/logo.webp" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/img/home_page/logo.jpg" type="image/jpeg">
+            <source media="(max-width: 767px)" srcset="/assets/img/logo.webp" type="image/webp">
+            <img src="/assets/img/home_page/logo.jpg" alt="BillSureMD - Medical Billing Services" loading="eager" width="200" height="52">
+          </picture>
           
         </a>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="/home/" class="active">Home</a></li>
-            <li><a href="/about_us/">About Us</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/contact_us/">Contact Us</a></li>
+        <nav id="navmenu" class="navmenu" role="navigation" aria-label="Main navigation">
+          <ul role="menubar">
+            <li role="none"><a href="/home/" class="active" role="menuitem" aria-current="page">Home</a></li>
+            <li role="none"><a href="/about_us/" role="menuitem">About Us</a></li>
+            <li role="none"><a href="/services/" role="menuitem">Services</a></li>
+            <li role="none"><a href="/contact_us/" role="menuitem">Contact Us</a></li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          <button class="mobile-nav-toggle d-xl-none" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="navmenu">
+            <i class="bi bi-list" aria-hidden="true"></i>
+          </button>
         </nav>
 
       </div>
@@ -88,10 +217,10 @@
 
   </header>
 
-  <main class="main">
+  <main id="main" class="main" role="main" aria-label="Main content">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section id="hero" class="hero section" role="banner" aria-labelledby="hero-heading">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -113,7 +242,7 @@
                 </div>
               </div>
 
-              <h1 data-aos="fade-right" data-aos-delay="300">
+              <h1 id="hero-heading" data-aos="fade-right" data-aos-delay="300">
                You Treat Patients  We Handle the Billing
               </h1>
 
@@ -162,19 +291,21 @@
 
           <div class="col-lg-6">
             <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-              <div class="main-image">
-                <img src="/assets//img/health/main_page.jpg" alt="Modern Healthcare Facility" class="img-fluid">
+              <div class="main-image responsive-image-container">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="/assets/img/health/main_page.jpg" type="image/jpeg">
+                  <source media="(min-width: 768px)" srcset="/assets/img/health/main_page.jpg" type="image/jpeg">
+                  <source media="(min-width: 576px)" srcset="/assets/img/health/main_page.jpg" type="image/jpeg">
+                  <img src="/assets/img/health/main_page.jpg" alt="Modern Healthcare Facility - Professional Medical Billing Services" class="img-fluid" loading="lazy" width="600" height="400" data-fallback="/assets/img/health/main_page.jpg">
+                </picture>
                 <div class="floating-card rating-card">
-                 <!-- <div class="card-content">
-                    <div class="rating-stars">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
+                  <div class="card-content">
+                    <div class="rating-icon">
+                      <i class="bi bi-shield-check"></i>
                     </div>
-                    <h6>99% claim accuracy</h6>
-                  </div>-->
+                    <h6>99% Claim Accuracy</h6>
+                    <p>Trusted by Healthcare Providers</p>
+                  </div>
                 </div>
               </div>
               <div class="background-elements">
@@ -226,8 +357,13 @@
 
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
             <div class="about-visual">
-              <div class="main-image">
-                <img src="/assets//img/home_page/credentialing.jpg" alt="Modern medical facility" class="img-fluid">
+              <div class="main-image responsive-image-container">
+                <picture>
+                  <source media="(min-width: 1200px)" srcset="/assets/img/home_page/credentialing.jpg" type="image/jpeg">
+                  <source media="(min-width: 768px)" srcset="/assets/img/home_page/credentialing.jpg" type="image/jpeg">
+                  <source media="(min-width: 576px)" srcset="/assets/img/home_page/credentialing.jpg" type="image/jpeg">
+                  <img src="/assets/img/home_page/credentialing.jpg" alt="Modern medical facility - Credentialing and billing services" class="img-fluid" loading="lazy" width="500" height="350" data-fallback="/assets/img/home_page/credentialing.jpg">
+                </picture>
               </div>
               <div class="floating-card">
                 <div class="card-content">
@@ -387,8 +523,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/tick.png" alt="Maternal Care" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/tick.png" type="image/png">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/tick.png" type="image/png">
+                    <img src="/assets/img/home_page/tick.png" alt="Trusted by Physicians & Clinics - Checkmark icon" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/tick.png">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5>Trusted by Physicians & Clinics</h5>
@@ -399,8 +539,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/accuracy.jpg" alt="Vaccination" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/accuracy.jpg" type="image/jpeg">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/accuracy.jpg" type="image/jpeg">
+                    <img src="/assets/img/home_page/accuracy.jpg" alt="Accuracy & Compliance - Medical accuracy illustration" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/accuracy.jpg">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5>Accuracy & Compliance You Can Rely On</h5>
@@ -411,8 +555,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/full_cycle.png" alt="Emergency Care" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/full_cycle.png" type="image/png">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/full_cycle.png" type="image/png">
+                    <img src="/assets/img/home_page/full_cycle.png" alt="Full Revenue Cycle Management - Cycle illustration" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/full_cycle.png">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5>Full Revenue Cycle Management</h5>
@@ -423,8 +571,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/communication.png" alt="Advanced Tech" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/communication.png" type="image/png">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/communication.png" type="image/png">
+                    <img src="/assets/img/home_page/communication.png" alt="Dedicated Support & Transparent Communication - Communication icon" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/communication.png">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5>Dedicated Support & Transparent Communication</h5>
@@ -441,8 +593,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/expert.webp" alt="Maternal Care" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/expert.webp" type="image/webp">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/expert.webp" type="image/webp">
+                    <img src="/assets/img/home_page/expert.webp" alt="Experienced & Certified Experts - Expert professional illustration" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/expert.webp">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5> Experienced & Certified Experts </h5>
@@ -453,8 +609,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/hipaa.jpg" alt="Vaccination" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/hipaa.jpg" type="image/jpeg">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/hipaa.jpg" type="image/jpeg">
+                    <img src="/assets/img/home_page/hipaa.jpg" alt="HIPAA-Compliant & Data-Secure - Security shield illustration" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/hipaa.jpg">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5> HIPAA-Compliant & Data-Secure</h5>
@@ -465,8 +625,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/network.webp" alt="Emergency Care" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/network.webp" type="image/webp">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/network.webp" type="image/webp">
+                    <img src="/assets/img/home_page/network.webp" alt="Supporting 100+ Healthcare Providers - Network illustration" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/network.webp">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5>Supporting 100+ Healthcare Providers</h5>
@@ -477,8 +641,12 @@
 
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="/assets//img/home_page/arrow.webp" alt="Advanced Tech" class="img-fluid" loading="lazy">
+                <div class="specialty-image responsive-image-container">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="/assets/img/home_page/arrow.webp" type="image/webp">
+                    <source media="(min-width: 576px)" srcset="/assets/img/home_page/arrow.webp" type="image/webp">
+                    <img src="/assets/img/home_page/arrow.webp" alt="$50M Claims Successfully Billed - Growth arrow illustration" class="img-fluid" loading="lazy" width="80" height="80" data-fallback="/assets/img/home_page/arrow.webp">
+                  </picture>
                 </div>
                 <div class="specialty-content">
                   <h5> $50 M Claims Successfully Billed</h5>
@@ -655,12 +823,22 @@
       
     </div>
 
-    <!-- Navigation buttons -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <!-- Enhanced Navigation buttons with accessibility -->
+    <div class="swiper-button-next" 
+         role="button" 
+         aria-label="Next specialty slide"
+         tabindex="0"
+         title="Next specialty slide"></div>
+    <div class="swiper-button-prev" 
+         role="button" 
+         aria-label="Previous specialty slide"
+         tabindex="0"
+         title="Previous specialty slide"></div>
 
-    <!-- Pagination dots -->
-    <div class="swiper-pagination"></div>
+    <!-- Enhanced Pagination dots with accessibility -->
+    <div class="swiper-pagination" 
+         role="tablist" 
+         aria-label="Specialty carousel pagination"></div>
   </div>
 </section>
 
@@ -1099,30 +1277,594 @@
   <!-- Main JS File -->
   <script src="/assets//js/main.js"></script>
   <script>
+  // Enhanced Responsive Specialties Carousel Configuration
+  // Task 5.1: Optimize Swiper carousel for mobile interaction
+  // Requirements: 2.2, 3.2, 6.4
   var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,   // how many specialties visible at once
-    spaceBetween: 30,   // gap between cards
-    loop: true,         // infinite loop
-    autoplay: {
-      delay: 3000,      // auto-slide every 3s
-      disableOnInteraction: false,
+    // Mobile-first configuration - 1 slide on mobile
+    slidesPerView: 1,
+    spaceBetween: 15,
+    
+    // Enhanced responsive breakpoints
+    breakpoints: {
+      // Small phones (320px+) - 1 slide
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+      },
+      // Large phones (480px+) - 1 slide with more spacing
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      // Small tablets (576px+) - 2 slides
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 25,
+      },
+      // Medium tablets (768px+) - 3 slides
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      // Large tablets/small desktop (992px+) - 4 slides
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 35,
+      },
+      // Desktop (1200px+) - 5 slides
+      1200: {
+        slidesPerView: 5,
+        spaceBetween: 40,
+      },
+      // Large desktop (1400px+) - 6 slides
+      1400: {
+        slidesPerView: 6,
+        spaceBetween: 45,
+      }
     },
+    
+    // Enhanced touch interaction settings
+    loop: true,
+    centeredSlides: false,
+    grabCursor: true,
+    touchRatio: 1,
+    touchAngle: 45,
+    simulateTouch: true,
+    allowTouchMove: true,
+    
+    // Improved autoplay with pause on interaction
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+      waitForTransition: true,
+    },
+    
+    // Touch-friendly navigation controls
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
+      hideOnClick: false,
     },
+    
+    // Enhanced pagination with dynamic bullets
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 5,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '" aria-label="Go to slide ' + (index + 1) + '"></span>';
+      },
     },
-    breakpoints: {
-      1024: { slidesPerView: 4 },
-      768: { slidesPerView: 2 },
-      480: { slidesPerView: 1 }
+    
+    // Accessibility enhancements
+    a11y: {
+      enabled: true,
+      prevSlideMessage: 'Previous specialty',
+      nextSlideMessage: 'Next specialty',
+      firstSlideMessage: 'This is the first specialty',
+      lastSlideMessage: 'This is the last specialty',
+      paginationBulletMessage: 'Go to slide {{index}}',
+    },
+    
+    // Keyboard navigation support
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+      pageUpDown: false,
+    },
+    
+    // Performance optimizations
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    speed: 600,
+    
+    // Event handlers for enhanced mobile experience
+    on: {
+      init: function() {
+        // Add loaded class for CSS animations
+        this.el.classList.add('swiper-loaded');
+        
+        // Pause autoplay if user prefers reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          this.autoplay.stop();
+        }
+        
+        // Enhance touch targets for mobile
+        this.navigation.nextEl.style.minWidth = '44px';
+        this.navigation.nextEl.style.minHeight = '44px';
+        this.navigation.prevEl.style.minWidth = '44px';
+        this.navigation.prevEl.style.minHeight = '44px';
+      },
+      
+      touchStart: function() {
+        // Pause autoplay on touch interaction
+        this.autoplay.stop();
+        
+        // Add visual feedback for touch
+        this.el.classList.add('touching');
+      },
+      
+      touchEnd: function() {
+        // Remove touch feedback
+        this.el.classList.remove('touching');
+        
+        // Resume autoplay after delay
+        setTimeout(() => {
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            this.autoplay.start();
+          }
+        }, 2000);
+      },
+      
+      slideChange: function() {
+        // Track slide changes for analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'specialty_carousel_slide', {
+            'event_category': 'Specialties Section',
+            'slide_index': this.activeIndex
+          });
+        }
+      },
+      
+      resize: function() {
+        // Recalculate slides on window resize
+        this.update();
+      }
     }
   });
+  
+  // Handle reduced motion preference
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const handleMotionChange = (e) => {
+    if (e.matches) {
+      swiper.autoplay.stop();
+    } else {
+      swiper.autoplay.start();
+    }
+  };
+  
+  mediaQuery.addEventListener('change', handleMotionChange);
+  
+  // Pause autoplay when page is not visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      swiper.autoplay.stop();
+    } else if (!mediaQuery.matches) {
+      swiper.autoplay.start();
+    }
+  });
+  
+  // Enhanced keyboard navigation for navigation controls
+  // Task 5.2: Add keyboard navigation support for accessibility compliance
+  // Requirements: 3.2, 8.2, 8.3
+  function enhanceNavigationAccessibility() {
+    const nextButton = document.querySelector('.swiper-button-next');
+    const prevButton = document.querySelector('.swiper-button-prev');
+    const pagination = document.querySelector('.swiper-pagination');
+    
+    // Enhanced keyboard support for navigation buttons
+    if (nextButton) {
+      nextButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          swiper.slideNext();
+          
+          // Announce slide change to screen readers
+          announceSlideChange('next');
+        }
+      });
+      
+      // Add focus styles
+      nextButton.addEventListener('focus', () => {
+        nextButton.style.outline = '2px solid var(--accent-color)';
+        nextButton.style.outlineOffset = '2px';
+      });
+      
+      nextButton.addEventListener('blur', () => {
+        nextButton.style.outline = 'none';
+      });
+    }
+    
+    if (prevButton) {
+      prevButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          swiper.slidePrev();
+          
+          // Announce slide change to screen readers
+          announceSlideChange('previous');
+        }
+      });
+      
+      // Add focus styles
+      prevButton.addEventListener('focus', () => {
+        prevButton.style.outline = '2px solid var(--accent-color)';
+        prevButton.style.outlineOffset = '2px';
+      });
+      
+      prevButton.addEventListener('blur', () => {
+        prevButton.style.outline = 'none';
+      });
+    }
+    
+    // Enhanced pagination accessibility
+    if (pagination) {
+      // Add keyboard navigation to pagination bullets
+      pagination.addEventListener('keydown', (e) => {
+        const bullets = pagination.querySelectorAll('.swiper-pagination-bullet');
+        const currentIndex = Array.from(bullets).findIndex(bullet => 
+          bullet.classList.contains('swiper-pagination-bullet-active'));
+        
+        let targetIndex = currentIndex;
+        
+        switch(e.key) {
+          case 'ArrowLeft':
+          case 'ArrowUp':
+            e.preventDefault();
+            targetIndex = currentIndex > 0 ? currentIndex - 1 : bullets.length - 1;
+            break;
+          case 'ArrowRight':
+          case 'ArrowDown':
+            e.preventDefault();
+            targetIndex = currentIndex < bullets.length - 1 ? currentIndex + 1 : 0;
+            break;
+          case 'Home':
+            e.preventDefault();
+            targetIndex = 0;
+            break;
+          case 'End':
+            e.preventDefault();
+            targetIndex = bullets.length - 1;
+            break;
+          case 'Enter':
+          case ' ':
+            e.preventDefault();
+            if (e.target.classList.contains('swiper-pagination-bullet')) {
+              e.target.click();
+            }
+            return;
+        }
+        
+        if (targetIndex !== currentIndex && bullets[targetIndex]) {
+          bullets[targetIndex].focus();
+          swiper.slideTo(targetIndex);
+          announceSlideChange('goto', targetIndex + 1);
+        }
+      });
+      
+      // Update pagination bullets with proper ARIA attributes
+      const updatePaginationAccessibility = () => {
+        const bullets = pagination.querySelectorAll('.swiper-pagination-bullet');
+        bullets.forEach((bullet, index) => {
+          bullet.setAttribute('role', 'tab');
+          bullet.setAttribute('aria-label', `Go to specialty slide ${index + 1}`);
+          bullet.setAttribute('tabindex', bullet.classList.contains('swiper-pagination-bullet-active') ? '0' : '-1');
+          bullet.setAttribute('aria-selected', bullet.classList.contains('swiper-pagination-bullet-active') ? 'true' : 'false');
+        });
+      };
+      
+      // Update accessibility attributes when slides change
+      swiper.on('slideChange', updatePaginationAccessibility);
+      
+      // Initial setup
+      setTimeout(updatePaginationAccessibility, 100);
+    }
+  }
+  
+  // Screen reader announcements for slide changes
+  function announceSlideChange(direction, slideNumber) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.style.position = 'absolute';
+    announcement.style.left = '-10000px';
+    announcement.style.width = '1px';
+    announcement.style.height = '1px';
+    announcement.style.overflow = 'hidden';
+    
+    let message = '';
+    if (direction === 'next') {
+      message = 'Moved to next specialty slide';
+    } else if (direction === 'previous') {
+      message = 'Moved to previous specialty slide';
+    } else if (direction === 'goto' && slideNumber) {
+      message = `Moved to specialty slide ${slideNumber}`;
+    }
+    
+    announcement.textContent = message;
+    document.body.appendChild(announcement);
+    
+    // Remove announcement after screen reader has time to read it
+    setTimeout(() => {
+      if (announcement.parentNode) {
+        announcement.parentNode.removeChild(announcement);
+      }
+    }, 1000);
+  }
+  
+  // Touch gesture enhancements for better mobile interaction
+  function enhanceTouchInteraction() {
+    const swiperContainer = document.querySelector('.mySwiper');
+    if (!swiperContainer) return;
+    
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    
+    swiperContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      
+      // Add visual feedback
+      swiperContainer.style.transform = 'scale(0.98)';
+    }, { passive: true });
+    
+    swiperContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      
+      // Remove visual feedback
+      swiperContainer.style.transform = '';
+      
+      // Handle swipe gestures
+      handleSwipeGesture();
+    }, { passive: true });
+    
+    function handleSwipeGesture() {
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      const minSwipeDistance = 50;
+      
+      // Only process horizontal swipes that are longer than vertical swipes
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          // Swipe right - go to previous slide
+          swiper.slidePrev();
+          announceSlideChange('previous');
+        } else {
+          // Swipe left - go to next slide
+          swiper.slideNext();
+          announceSlideChange('next');
+        }
+      }
+    }
+  }
+  
+  // Initialize all accessibility enhancements
+  setTimeout(() => {
+    enhanceNavigationAccessibility();
+    enhanceTouchInteraction();
+  }, 500);
 </script>
 
+<!-- Performance Optimization Scripts -->
+<script>
+  /**
+   * Mobile Performance Optimizations
+   * Requirements: 5.1, 5.2, 5.4
+   */
+  
+  // Critical resource loading optimization
+  (function() {
+    'use strict';
+    
+    // Intersection Observer for lazy loading
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          
+          // Load high-res image
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          
+          // Load srcset if available
+          if (img.dataset.srcset) {
+            img.srcset = img.dataset.srcset;
+            img.removeAttribute('data-srcset');
+          }
+          
+          // Remove loading class
+          img.classList.remove('lazy-loading');
+          img.classList.add('lazy-loaded');
+          
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.01
+    });
+    
+    // Observe all lazy images
+    document.querySelectorAll('img[data-src], img[loading="lazy"]').forEach(img => {
+      img.classList.add('lazy-loading');
+      imageObserver.observe(img);
+    });
+    
+    // Preload next viewport images on scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) return;
+      
+      scrollTimeout = setTimeout(() => {
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset;
+        const nextViewportImages = document.querySelectorAll('img[data-src]');
+        
+        nextViewportImages.forEach(img => {
+          const imgTop = img.getBoundingClientRect().top + scrollTop;
+          if (imgTop < scrollTop + (viewportHeight * 2)) {
+            imageObserver.observe(img);
+          }
+        });
+        
+        scrollTimeout = null;
+      }, 100);
+    }, { passive: true });
+  })();
+  
+  // Service Worker registration for caching
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('SW registered: ', registration);
+        })
+        .catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+  
+  // Resource hints for next page navigation
+  function addResourceHints() {
+    const links = document.querySelectorAll('a[href^="/"]');
+    const prefetchedUrls = new Set();
+    
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        const url = link.href;
+        if (!prefetchedUrls.has(url)) {
+          const prefetchLink = document.createElement('link');
+          prefetchLink.rel = 'prefetch';
+          prefetchLink.href = url;
+          document.head.appendChild(prefetchLink);
+          prefetchedUrls.add(url);
+        }
+      }, { once: true });
+    });
+  }
+  
+  // Critical CSS loading completion
+  function loadNonCriticalCSS() {
+    const nonCriticalCSS = [
+      '/assets/vendor/aos/aos.css',
+      '/assets/vendor/glightbox/css/glightbox.min.css'
+    ];
+    
+    nonCriticalCSS.forEach(href => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.media = 'print';
+      link.onload = function() { this.media = 'all'; };
+      document.head.appendChild(link);
+    });
+  }
+  
+  // Font loading optimization
+  function optimizeFontLoading() {
+    if ('fonts' in document) {
+      // Preload critical fonts
+      const criticalFonts = [
+        'Roboto',
+        'Montserrat'
+      ];
+      
+      criticalFonts.forEach(fontFamily => {
+        document.fonts.load(`400 16px ${fontFamily}`);
+        document.fonts.load(`600 16px ${fontFamily}`);
+      });
+    }
+  }
+  
+  // Performance monitoring
+  function monitorPerformance() {
+    if ('performance' in window) {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+          const domContentLoaded = perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart;
+          
+          // Log performance metrics (can be sent to analytics)
+          console.log('Page Load Time:', loadTime + 'ms');
+          console.log('DOM Content Loaded:', domContentLoaded + 'ms');
+          
+          // Warn if performance is poor on mobile
+          if (window.innerWidth <= 768 && loadTime > 3000) {
+            console.warn('Mobile performance may be suboptimal');
+          }
+        }, 0);
+      });
+    }
+  }
+  
+  // Connection-aware loading
+  function adaptToConnection() {
+    if ('connection' in navigator) {
+      const connection = navigator.connection;
+      
+      // Reduce quality on slow connections
+      if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+        document.body.classList.add('slow-connection');
+        
+        // Disable animations on slow connections
+        const style = document.createElement('style');
+        style.textContent = `
+          .slow-connection * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+  }
+  
+  // Initialize performance optimizations
+  document.addEventListener('DOMContentLoaded', () => {
+    addResourceHints();
+    optimizeFontLoading();
+    monitorPerformance();
+    adaptToConnection();
+    
+    // Load non-critical CSS after initial render
+    setTimeout(loadNonCriticalCSS, 1000);
+  });
+  
+  // Optimize scroll performance
+  let ticking = false;
+  function optimizeScrollPerformance() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        // Scroll-based optimizations here
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', optimizeScrollPerformance, { passive: true });
+</script>
 
 </body>
 

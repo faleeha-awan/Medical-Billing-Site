@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Foundation Test</title>
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        .test-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-responsive">
+        <h1>Responsive Foundation Test</h1>
+        
+        <div class="test-section">
+            <h2>Fluid Typography Test</h2>
+            <p class="text-xs">Extra small text (clamp)</p>
+            <p class="text-sm">Small text (clamp)</p>
+            <p class="text-base">Base text (clamp)</p>
+            <p class="text-lg">Large text (clamp)</p>
+            <p class="text-xl">Extra large text (clamp)</p>
+        </div>
+        
+        <div class="test-section">
+            <h3>Responsive Grid Test</h3>
+            <div class="grid-responsive grid-sm-2 grid-md-3 grid-lg-4">
+                <div style="background: #e9ecef; padding: 1rem;">Item 1</div>
+                <div style="background: #e9ecef; padding: 1rem;">Item 2</div>
+                <div style="background: #e9ecef; padding: 1rem;">Item 3</div>
+                <div style="background: #e9ecef; padding: 1rem;">Item 4</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h4>Touch Target Test</h4>
+            <button class="btn">Touch-friendly Button</button>
+            <input type="text" placeholder="Touch-friendly input" style="margin-left: 1rem;">
+        </div>
+        
+        <div class="test-section">
+            <h5>Responsive Image Test</h5>
+            <div class="aspect-ratio aspect-16-9">
+                <img src="https://via.placeholder.com/800x450" alt="Test image" class="img-responsive">
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h6>Responsive Utilities Test</h6>
+            <div class="d-flex flex-column-mobile flex-row-tablet justify-between align-center gap-md">
+                <div>Flex item 1</div>
+                <div>Flex item 2</div>
+                <div>Flex item 3</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

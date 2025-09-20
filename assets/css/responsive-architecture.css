@@ -1,0 +1,641 @@
+/*--------------------------------------------------------------
+# RESPONSIVE CSS ARCHITECTURE - BILLSUREMD
+# 
+# This file contains the optimized responsive CSS architecture for
+# the BillSureMD medical billing website. It implements a mobile-first
+# approach with consolidated media queries and performance optimizations.
+#
+# ARCHITECTURE OVERVIEW:
+# 1. CSS Custom Properties (CSS Variables) for responsive values
+# 2. Mobile-first media query structure (320px to 1400px+)
+# 3. Consolidated breakpoint system
+# 4. Optimized responsive utilities
+# 5. Performance-focused responsive components
+#
+# BREAKPOINT STRATEGY:
+# - Mobile: 320px - 575px (base styles, no media query needed)
+# - Small: 576px - 767px
+# - Medium: 768px - 991px  
+# - Large: 992px - 1199px
+# - XL: 1200px - 1399px
+# - XXL: 1400px+
+#
+# MAINTENANCE GUIDELINES:
+# - Always use mobile-first approach (min-width media queries)
+# - Use CSS custom properties for consistent values
+# - Group related responsive styles together
+# - Comment all major responsive sections
+# - Test across all breakpoints when making changes
+#
+# Requirements addressed: 7.3, 5.2, 6.4
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# RESPONSIVE FOUNDATION - CSS CUSTOM PROPERTIES
+--------------------------------------------------------------*/
+
+:root {
+  /* BREAKPOINT DEFINITIONS */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  /* FLUID TYPOGRAPHY SYSTEM */
+  /* Uses clamp() for automatic scaling between min and max values */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-3xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+  --font-size-4xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+
+  /* RESPONSIVE SPACING SCALE */
+  /* Provides consistent spacing that scales with viewport */
+  --spacing-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+  --spacing-md: clamp(1rem, 0.8rem + 1vw, 2rem);
+  --spacing-lg: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+  --spacing-xl: clamp(3rem, 2rem + 5vw, 6rem);
+  --spacing-2xl: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* CONTAINER MAX WIDTHS */
+  /* Defines maximum container widths for each breakpoint */
+  --container-xs: 100%;
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-xxl: 1320px;
+
+  /* TOUCH TARGET SIZES */
+  /* Ensures accessibility compliance for interactive elements */
+  --touch-target-min: 44px;
+  --touch-target-comfortable: 48px;
+
+  /* RESPONSIVE GRID GAPS */
+  /* Consolidated grid gap definitions (removed duplicate) */
+  --grid-gap-xs: 0.5rem;
+  --grid-gap-sm: 1rem;
+  --grid-gap-md: 1.5rem;
+  --grid-gap-lg: 2rem;
+  --grid-gap-xl: 3rem;
+}
+
+/*--------------------------------------------------------------
+# CONSOLIDATED MEDIA QUERY STRUCTURE
+# 
+# All media queries are organized by breakpoint for better
+# maintainability and performance. Each section contains
+# all styles for that specific breakpoint.
+--------------------------------------------------------------*/
+
+/* BASE STYLES (Mobile First - 320px+) */
+/* All base styles are written for mobile devices first */
+/* No media query needed - these are the default styles */
+
+body {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+/* Apply fluid typography to headings */
+h1 { font-size: var(--font-size-4xl); line-height: 1.2; }
+h2 { font-size: var(--font-size-3xl); line-height: 1.3; }
+h3 { font-size: var(--font-size-2xl); line-height: 1.4; }
+h4 { font-size: var(--font-size-xl); line-height: 1.4; }
+h5 { font-size: var(--font-size-lg); line-height: 1.5; }
+h6 { font-size: var(--font-size-base); line-height: 1.5; }
+
+/* Base responsive container */
+.container-responsive {
+  width: 100%;
+  padding-right: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Base responsive grid */
+.grid-responsive {
+  display: grid;
+  gap: var(--grid-gap-sm);
+  grid-template-columns: 1fr;
+}
+
+/* Base responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Base touch targets */
+button, .btn, a.btn, input[type="submit"], input[type="button"], .touch-target {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Base form elements */
+input, textarea, select {
+  min-height: var(--touch-target-min);
+  font-size: 16px; /* Prevent zoom on iOS */
+  padding: 0.75rem;
+}
+
+/*--------------------------------------------------------------
+# SMALL DEVICES (576px and up)
+--------------------------------------------------------------*/
+@media (min-width: 576px) {
+  :root {
+    --current-breakpoint: 'sm';
+  }
+
+  /* Container adjustments */
+  .container-responsive {
+    max-width: var(--container-sm);
+    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-md);
+  }
+
+  /* Grid improvements */
+  .grid-responsive {
+    gap: var(--grid-gap-md);
+  }
+  
+  .grid-responsive.grid-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Form elements can use smaller font size */
+  input, textarea, select {
+    font-size: var(--font-size-base);
+  }
+}
+
+/*--------------------------------------------------------------
+# MEDIUM DEVICES (768px and up) - Tablets
+--------------------------------------------------------------*/
+@media (min-width: 768px) {
+  :root {
+    --current-breakpoint: 'md';
+  }
+
+  /* Container adjustments */
+  .container-responsive {
+    max-width: var(--container-md);
+  }
+
+  /* Grid layouts */
+  .grid-responsive.grid-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-responsive.grid-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Touch targets can be more comfortable */
+  button, .btn, a.btn, input[type="submit"], input[type="button"], .touch-target {
+    min-height: var(--touch-target-comfortable);
+    min-width: var(--touch-target-comfortable);
+  }
+
+  /* Header responsive adjustments */
+  .header .branding {
+    min-height: 58px;
+    padding: 9px 0;
+  }
+
+  .header .logo img {
+    max-height: 46px;
+    margin-right: 6px;
+    max-width: 160px;
+  }
+
+  /* Topbar adjustments */
+  .header .topbar {
+    height: 38px;
+    font-size: 13px;
+  }
+}
+
+/*--------------------------------------------------------------
+# LARGE DEVICES (992px and up) - Desktops
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+  :root {
+    --current-breakpoint: 'lg';
+  }
+
+  /* Container adjustments */
+  .container-responsive {
+    max-width: var(--container-lg);
+  }
+
+  /* Grid improvements */
+  .grid-responsive {
+    gap: var(--grid-gap-lg);
+  }
+  
+  .grid-responsive.grid-lg-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-responsive.grid-lg-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-responsive.grid-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Header desktop styles */
+  .header .branding {
+    min-height: 60px;
+    padding: 10px 0;
+  }
+
+  .header .logo img {
+    max-height: 50px;
+    margin-right: 8px;
+    max-width: 180px;
+  }
+
+  .header .topbar {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  /* Background images can use fixed attachment */
+  .responsive-bg {
+    background-attachment: fixed;
+  }
+}
+
+/*--------------------------------------------------------------
+# EXTRA LARGE DEVICES (1200px and up) - Large Desktops
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+  :root {
+    --current-breakpoint: 'xl';
+  }
+
+  /* Container adjustments */
+  .container-responsive {
+    max-width: var(--container-xl);
+  }
+
+  /* Grid improvements */
+  .grid-responsive {
+    gap: var(--grid-gap-xl);
+  }
+
+  /* Header large desktop styles */
+  .header .logo img {
+    max-height: 52px;
+    margin-right: 8px;
+    max-width: 200px;
+  }
+}
+
+/*--------------------------------------------------------------
+# ULTRA WIDE DEVICES (1400px and up)
+--------------------------------------------------------------*/
+@media (min-width: 1400px) {
+  :root {
+    --current-breakpoint: 'xxl';
+  }
+
+  /* Container adjustments */
+  .container-responsive {
+    max-width: var(--container-xxl);
+  }
+
+  /* Ultra-wide specific optimizations */
+  .header .logo img {
+    max-height: 56px;
+    max-width: 220px;
+  }
+}
+
+/*--------------------------------------------------------------
+# RESPONSIVE UTILITY CLASSES
+# 
+# Consolidated utility classes for common responsive needs
+--------------------------------------------------------------*/
+
+/* Display utilities */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+
+/* Responsive display utilities */
+@media (max-width: 575px) {
+  .d-xs-none { display: none !important; }
+  .d-xs-block { display: block !important; }
+  .d-xs-flex { display: flex !important; }
+  .d-xs-grid { display: grid !important; }
+}
+
+@media (min-width: 576px) {
+  .d-sm-none { display: none !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-flex { display: flex !important; }
+  .d-sm-grid { display: grid !important; }
+}
+
+@media (min-width: 768px) {
+  .d-md-none { display: none !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+  .d-md-grid { display: grid !important; }
+}
+
+@media (min-width: 992px) {
+  .d-lg-none { display: none !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-flex { display: flex !important; }
+  .d-lg-grid { display: grid !important; }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-none { display: none !important; }
+  .d-xl-block { display: block !important; }
+  .d-xl-flex { display: flex !important; }
+  .d-xl-grid { display: grid !important; }
+}
+
+/* Text alignment utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+@media (max-width: 767px) {
+  .text-center-mobile { text-align: center; }
+  .text-left-mobile { text-align: left; }
+}
+
+@media (min-width: 768px) {
+  .text-center-tablet { text-align: center; }
+  .text-left-tablet { text-align: left; }
+}
+
+@media (min-width: 992px) {
+  .text-center-desktop { text-align: center; }
+  .text-left-desktop { text-align: left; }
+}
+
+/* Flexbox utilities */
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+/* Responsive flexbox utilities */
+@media (max-width: 767px) {
+  .flex-column-mobile { flex-direction: column; }
+  .flex-row-mobile { flex-direction: row; }
+}
+
+@media (min-width: 768px) {
+  .flex-column-tablet { flex-direction: column; }
+  .flex-row-tablet { flex-direction: row; }
+}
+
+@media (min-width: 992px) {
+  .flex-column-desktop { flex-direction: column; }
+  .flex-row-desktop { flex-direction: row; }
+}
+
+/* Gap utilities */
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+
+/* Spacing utilities */
+.m-responsive { margin: var(--spacing-md); }
+.mt-responsive { margin-top: var(--spacing-md); }
+.mb-responsive { margin-bottom: var(--spacing-md); }
+.ml-responsive { margin-left: var(--spacing-md); }
+.mr-responsive { margin-right: var(--spacing-md); }
+.mx-responsive { margin-left: var(--spacing-md); margin-right: var(--spacing-md); }
+.my-responsive { margin-top: var(--spacing-md); margin-bottom: var(--spacing-md); }
+
+.p-responsive { padding: var(--spacing-md); }
+.pt-responsive { padding-top: var(--spacing-md); }
+.pb-responsive { padding-bottom: var(--spacing-md); }
+.pl-responsive { padding-left: var(--spacing-md); }
+.pr-responsive { padding-right: var(--spacing-md); }
+.px-responsive { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.py-responsive { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+
+/* Typography utilities */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+
+/*--------------------------------------------------------------
+# RESPONSIVE IMAGE SYSTEM
+--------------------------------------------------------------*/
+
+/* Base responsive image styles */
+.img-responsive, .img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Picture element responsive styling */
+picture {
+  display: block;
+  width: 100%;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive image containers */
+.responsive-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.responsive-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.responsive-image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Aspect ratio containers */
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.aspect-ratio::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.aspect-ratio.aspect-1-1::before { padding-top: 100%; }
+.aspect-ratio.aspect-4-3::before { padding-top: 75%; }
+.aspect-ratio.aspect-3-2::before { padding-top: 66.67%; }
+
+.aspect-ratio img,
+.aspect-ratio video,
+.aspect-ratio iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive image optimizations by breakpoint */
+@media (max-width: 575px) {
+  .responsive-image-container {
+    border-radius: 4px;
+  }
+}
+
+/*--------------------------------------------------------------
+# RESPONSIVE BACKGROUND SYSTEM
+--------------------------------------------------------------*/
+
+.responsive-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Better for mobile performance */
+  background-color: #f8f9fa; /* Fallback color */
+}
+
+/* Mobile optimizations */
+@media (max-width: 575px) {
+  .responsive-bg {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 992px) {
+  .responsive-bg {
+    background-attachment: fixed; /* Parallax effect on larger screens */
+  }
+}
+
+/*--------------------------------------------------------------
+# ACCESSIBILITY AND PERFORMANCE OPTIMIZATIONS
+--------------------------------------------------------------*/
+
+/* High DPI optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .responsive-bg {
+    background-size: cover;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero .background-elements .element {
+    animation: none;
+  }
+  
+  .responsive-bg {
+    background-attachment: scroll !important;
+  }
+  
+  .responsive-image-container img {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .responsive-bg,
+  .hero .background-elements {
+    display: none;
+  }
+  
+  .container-responsive {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# PERFORMANCE OPTIMIZATIONS
+--------------------------------------------------------------*/
+
+/* Lazy loading optimization */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([src*="data:"]) {
+  opacity: 1;
+}
+
+/* Image loading fallbacks */
+img {
+  background-color: #f8f9fa;
+}
+
+img[src] {
+  background: none;
+}
+
+/* Critical CSS hint - these styles should be inlined */
+/* @critical-start */
+.container-responsive,
+.grid-responsive,
+.d-flex,
+.d-block,
+.text-center,
+img {
+  /* Critical styles are already defined above */
+}
+/* @critical-end */

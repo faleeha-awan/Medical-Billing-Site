@@ -59,10 +59,13 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="/home/" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="/assets//img/home_page/logo.jpg" alt=""> 
-          <!--<h1 class="sitename">BillSureMD</h1>-->
+        <a href="/home/" class="logo d-flex align-items-center" aria-label="BillSureMD - Home">
+          <picture>
+            <source media="(min-width: 768px)" srcset="/assets/img/logo.webp" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/img/home_page/logo.jpg" type="image/jpeg">
+            <source media="(max-width: 767px)" srcset="/assets/img/logo.webp" type="image/webp">
+            <img src="/assets/img/home_page/logo.jpg" alt="BillSureMD - Medical Billing Services" loading="eager" width="200" height="52">
+          </picture>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -117,31 +120,83 @@
               </div>
 
               <div class="appointment-form" data-aos="fade-up" data-aos-delay="400">
-                <form id = consultationForm>
+                <form id="consultationForm" role="form" novalidate>
                   <div class="row gy-4">
                     
                     <div class="col-md-6">
-                      <input type="text" name="name" class="form-control" placeholder="Full Name" required="">
+                      <input 
+                        type="text" 
+                        name="name" 
+                        class="form-control" 
+                        placeholder="Full Name" 
+                        required
+                        autocomplete="name"
+                        autocapitalize="words"
+                        aria-label="Full Name"
+                        minlength="2"
+                        maxlength="50">
                     </div>
                     <div class="col-md-6">
-                      <input type="email" name="email" class="form-control" placeholder="Email Address" required="">
+                      <input 
+                        type="email" 
+                        name="email" 
+                        class="form-control" 
+                        placeholder="Email Address" 
+                        required
+                        autocomplete="email"
+                        autocapitalize="none"
+                        autocorrect="off"
+                        spellcheck="false"
+                        aria-label="Email Address">
                     </div>
                     <div class="col-md-6">
-                      <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required="">
+                      <input 
+                        type="tel" 
+                        name="phone" 
+                        class="form-control" 
+                        placeholder="Phone Number" 
+                        required
+                        autocomplete="tel"
+                        inputmode="tel"
+                        pattern="[0-9+\-\s\(\)]*"
+                        aria-label="Phone Number"
+                        minlength="10"
+                        maxlength="20">
                     </div>
                     <div class="col-12">
-                      <textarea name="notes" class="form-control" rows="4" placeholder="Additional notes (Optional)"></textarea>
+                      <textarea 
+                        name="notes" 
+                        class="form-control" 
+                        rows="4" 
+                        placeholder="Additional notes (Optional)"
+                        aria-label="Additional notes"
+                        maxlength="500"></textarea>
                     </div>
                     
                     <input type="hidden" name="form" value="consultation">
                     
-                    <div class="col-12", style="text-align: center;">
-                      <button type="submit" style="background-color: rgb(3,3,109); color: white; padding: 15px 80px; border: none; border-radius: 5px;">Submit</button>
+                    <div class="col-12" style="text-align: center;">
+                      <button 
+                        type="submit" 
+                        class="btn-submit"
+                        aria-describedby="submit-help">
+                        Submit Request
+                      </button>
+                      <div id="submit-help" class="sr-only">
+                        Submit your consultation request. We'll contact you within 24-48 hours.
+                      </div>
                     </div>
                   </div>
                 </form>
                 <!-- Success Modal -->
-              <div id="successModal" class="modal-overlay">
+              <div 
+                id="successModal" 
+                class="modal-overlay" 
+                role="dialog" 
+                aria-modal="true" 
+                aria-labelledby="modal-title-consultation" 
+                aria-describedby="modal-description-consultation"
+                aria-hidden="true">
                 <div class="modal-box">
                   <h4>We’ve Got Your Request</h4>
                   <p>Your request has been received. We'll contact you within 24–48 hours.</p>
@@ -295,7 +350,15 @@
   })
   .then(response => {
     if (response.ok) {
-      document.getElementById('successModal').style.display = 'flex';
+      const modal = document.getElementById('successModal');
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      
+      // Focus the close button for accessibility
+      const closeButton = document.getElementById('closeModal');
+      if (closeButton) {
+        closeButton.focus();
+      }
     } else {
       alert('Something went wrong.');
     }
@@ -306,8 +369,16 @@
 });
 
 document.getElementById('closeModal').addEventListener('click', function() {
-  document.getElementById('successModal').style.display = 'none';
+  const modal = document.getElementById('successModal');
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
   document.getElementById('consultationForm').reset();
+  
+  // Return focus to submit button
+  const submitButton = document.querySelector('#consultationForm button[type="submit"]');
+  if (submitButton) {
+    submitButton.focus();
+  }
 });
 
 </script>
