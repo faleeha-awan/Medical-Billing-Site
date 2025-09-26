@@ -6234,7 +6234,7 @@ section,
 
 .carousel-wrapper {
   position: relative;
-  max-width: 800px; /* adjust depending on how many hexes you want visible */
+  max-width: 400px; /* adjust depending on how many hexes you want visible */
   margin: auto;
   overflow: hidden;
 }
