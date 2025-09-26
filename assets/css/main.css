@@ -6258,7 +6258,7 @@ section,
 }
 
 .carousel-btn.prev {
-  left: -60px; /* adjust spacing */
+  left: -20px; /* adjust spacing */
 }
 
 .carousel-btn.next {
