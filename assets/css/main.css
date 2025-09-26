@@ -6234,7 +6234,7 @@ section,
 
 .carousel-wrapper {
   position: relative;
-  max-width: 900px; /* adjust depending on how many hexes you want visible */
+  max-width: 850px; /* adjust depending on how many hexes you want visible */
   margin: auto;
 }
 
@@ -6248,7 +6248,6 @@ section,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #333;
   color: rgb(3, 3, 109);
   border: none;
   font-size: 2rem;
