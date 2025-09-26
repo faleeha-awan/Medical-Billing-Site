@@ -6283,6 +6283,17 @@ section,
   flex: 0 0 auto; /* prevent shrinking */
 }
 
+.hex {
+  width: 150px;
+  height: 120px;
+  background-color: #e0e0e0;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
 .hex:hover {
   background-color: #d0d0d0;
 }
