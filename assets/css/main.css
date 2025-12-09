@@ -6356,8 +6356,8 @@ section,
   left: 25px;
   width: 55px;
   height: 55px;
-  background: #187bcd; /* Blue */
-  color: white;
+  background: white; /* Blue */
+  color: #001faa;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -6392,7 +6392,7 @@ section,
 
 /* Header */
 #chat-header {
-  background: #187bcd;
+  background: #001faa;
   color: white;
   padding: 12px;
   display: flex;
@@ -6426,7 +6426,7 @@ section,
 }
 
 .user-message {
-  background: #187bcd;
+  background: #001faa;
   color: white;
   padding: 10px 14px;
   border-radius: 10px;
@@ -6438,7 +6438,7 @@ section,
 
 /* FAQ Buttons */
 .faq-btn {
-  background: #187bcd;
+  background: #001faa;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -6449,7 +6449,7 @@ section,
 }
 
 .faq-btn:hover {
-  background: #0e5a95;
+  background: #001faa;
 }
 
 /* Chat input */
@@ -6467,7 +6467,7 @@ section,
 }
 
 #send-btn {
-  background: #187bcd;
+  background: #001faa;
   color: white;
   border: none;
   width: 60px;
