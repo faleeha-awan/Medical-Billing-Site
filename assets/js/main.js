@@ -148,25 +148,38 @@
 (function () {
   const WORKER_URL = "https://billsuremd-chatbot-backend.faleehaawan310.workers.dev"; // <-- your worker
 
-  const btn = document.getElementById("chatbot-btn");
-  const box = document.getElementById("chatbot-box");
-  const closeBtn = document.getElementById("chatbot-close");
-  const sendBtn = document.getElementById("chat-send");
-  const input = document.getElementById("chat-input");
-  const body = document.getElementById("chat-body");
+  // Elements
+const chatBtn = document.getElementById("chatbot-btn");
+const chatBox = document.getElementById("chatbot-box");
+const chatClose = document.getElementById("chat-close");
+const chatSend = document.getElementById("chat-send");
+const chatInput = document.getElementById("chat-input");
+const chatBody = document.getElementById("chat-body");
 
-  btn.addEventListener("click", () => box.style.display = "flex");
-  closeBtn.addEventListener("click", () => box.style.display = "none");
+// Show window
+chatBtn.addEventListener("click", () => {
+    chatBox.style.display = "flex";
+});
 
-  // FAQ buttons
-  document.querySelectorAll(".faq-btn").forEach(el => {
-    el.addEventListener("click", () => {
-      const text = el.textContent.trim();
-      addUserMessage(text);
-      // call worker so hybrid logic uses prewritten reply
-      sendToWorker(text);
+// Close window
+chatClose.addEventListener("click", () => {
+    chatBox.style.display = "none";
+});
+
+// Prewritten FAQ replies
+const faqReplies = {
+    "Pricing": "Our pricing varies depending on the service. What would you like to know?",
+    "Services": "We offer a range of services including XYZ...",
+    "Contact Info": "You can reach us at email@example.com or call 000-0000000."
+};
+
+// FAQ buttons listener
+document.querySelectorAll(".faq-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        addUserMessage(btn.innerText);
+        addBotMessage(faqReplies[btn.innerText]);
     });
-  });
+});
 
   sendBtn.addEventListener("click", () => send());
   input.addEventListener("keypress", (e) => { if (e.key === "Enter") send(); });
