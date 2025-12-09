@@ -144,5 +144,92 @@
     });
   });
 
+  // ---------- Chat UI wiring ----------
+(function () {
+  const WORKER_URL = "https://billsuremd-chatbot-backend.faleehaawan310.workers.dev"; // <-- your worker
+
+  const btn = document.getElementById("chatbot-btn");
+  const box = document.getElementById("chatbot-box");
+  const closeBtn = document.getElementById("chatbot-close");
+  const sendBtn = document.getElementById("chat-send");
+  const input = document.getElementById("chat-input");
+  const body = document.getElementById("chat-body");
+
+  btn.addEventListener("click", () => box.style.display = "flex");
+  closeBtn.addEventListener("click", () => box.style.display = "none");
+
+  // FAQ buttons
+  document.querySelectorAll(".faq-btn").forEach(el => {
+    el.addEventListener("click", () => {
+      const text = el.textContent.trim();
+      addUserMessage(text);
+      // call worker so hybrid logic uses prewritten reply
+      sendToWorker(text);
+    });
+  });
+
+  sendBtn.addEventListener("click", () => send());
+  input.addEventListener("keypress", (e) => { if (e.key === "Enter") send(); });
+
+  function addUserMessage(msg){
+    const d = document.createElement("div"); d.className = "user-msg"; d.textContent = msg; body.appendChild(d); body.scrollTop = body.scrollHeight;
+  }
+  function addBotMessage(msg){
+    const d = document.createElement("div"); d.className = "bot-msg"; d.textContent = msg; body.appendChild(d); body.scrollTop = body.scrollHeight;
+  }
+  function replaceLastBotMessage(msg){
+    const nodes = body.querySelectorAll(".bot-msg");
+    if (nodes.length) nodes[nodes.length - 1].textContent = msg;
+  }
+
+  function send(){
+    const text = input.value.trim();
+    if (!text) return;
+    addUserMessage(text);
+    input.value = "";
+    // show typing line
+    addBotMessage("Typing...");
+    sendToWorker(text);
+  }
+
+  async function sendToWorker(message){
+    try {
+      const WORKER_URL = "https://billsuremd-chatbot-backend.faleehaawan310.workers.dev";
+      const res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+
+      if (data.error) {
+        replaceLastBotMessage("Sorry, an error occurred.");
+        console.error("Worker error:", data);
+        return;
+      }
+
+      // If the worker returned prewritten reply
+      if (data.source === "prewritten") {
+        replaceLastBotMessage(data.reply);
+        return;
+      }
+
+      // AI reply
+      if (data.reply) {
+        replaceLastBotMessage(data.reply);
+        return;
+      }
+
+      replaceLastBotMessage("No response.");
+    } catch (err) {
+      replaceLastBotMessage("Network error.");
+      console.error(err);
+    }
+  }
+})();
+
+
+
   
 })();
