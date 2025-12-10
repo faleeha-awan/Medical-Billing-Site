@@ -145,7 +145,7 @@
   });
 
   // ---------- Chat UI wiring ----------
-  
+
 // Toggle chat window
 document.getElementById("chat-btn").onclick = function() {
   document.getElementById("chat-window").style.display = "flex";
@@ -161,7 +161,7 @@ document.getElementById("user-input").addEventListener("keypress", function(e) {
   if (e.key === "Enter") sendMessage();
 });
 
-function sendMessage() {
+async function sendMessage() {
   let input = document.getElementById("user-input");
   let text = input.value.trim();
   if (!text) return;
@@ -169,10 +169,27 @@ function sendMessage() {
   addUserMessage(text);
   input.value = "";
 
-  // Placeholder bot response (AI later)
-  setTimeout(() => {
-    addBotMessage("Thanks for your message! (AI will answer here later)");
-  }, 500);
+  // Send to Worker and get response
+  try {
+    const response = await fetch("https://billsuremd-chatbot-backend.faleehaawan310.workers.dev", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: text })
+    });
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const reply = data.reply || "Sorry, I couldn't generate a response.";
+    addBotMessage(reply);
+  } catch (error) {
+    console.error("Error fetching bot response:", error);
+    addBotMessage("Oops! Something went wrong. Please try again later.");
+  }
 }
 
 function addUserMessage(msg) {
@@ -193,11 +210,33 @@ function addBotMessage(msg) {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-// FAQ Button click → put into chat
+// FAQ Button click → put into chat and send to API
 document.querySelectorAll(".faq-btn").forEach(btn => {
-  btn.onclick = () => {
-    addUserMessage(btn.textContent);
-    addBotMessage("Fetching answer... (AI will respond later)");
+  btn.onclick = async () => {
+    const text = btn.textContent;
+    addUserMessage(text);
+
+    // Send to Worker (same as sendMessage)
+    try {
+      const response = await fetch("https://billsuremd-chatbot-backend.faleehaawan310.workers.dev", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: text })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const reply = data.reply || "Sorry, I couldn't generate a response.";
+      addBotMessage(reply);
+    } catch (error) {
+      console.error("Error fetching bot response:", error);
+      addBotMessage("Oops! Something went wrong. Please try again later.");
+    }
   };
 });
 

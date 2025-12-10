@@ -6392,8 +6392,8 @@ section,
 
 /* Header */
 #chat-header {
-  background: #001faa;
-  color: white;
+  background:var(--accent-color);
+  color: var(--contrast-color);
   padding: 12px;
   display: flex;
   justify-content: space-between;
@@ -6401,8 +6401,8 @@ section,
 }
 
 #chat-header button {
-  background: transparent;
-  color: white;
+  background:var(--accent-color);
+  color: var(--contrast-color);
   border: none;
   font-size: 22px;
   cursor: pointer;
@@ -6426,8 +6426,8 @@ section,
 }
 
 .user-message {
-  background: #001faa;
-  color: white;
+  background:var(--accent-color);
+  color: var(--contrast-color);
   padding: 10px 14px;
   border-radius: 10px;
   margin-bottom: 12px;
@@ -6438,8 +6438,8 @@ section,
 
 /* FAQ Buttons */
 .faq-btn {
-  background: #001faa;
-  color: white;
+  background:var(--accent-color);
+  color: var(--contrast-color);
   border: none;
   padding: 8px 12px;
   margin: 4px 0;
@@ -6449,7 +6449,7 @@ section,
 }
 
 .faq-btn:hover {
-  background: #001faa;
+  background:var(--accent-color);
 }
 
 /* Chat input */
@@ -6467,8 +6467,8 @@ section,
 }
 
 #send-btn {
-  background: #001faa;
-  color: white;
+  background:var(--accent-color);
+  color: var(--contrast-color);
   border: none;
   width: 60px;
   cursor: pointer;
