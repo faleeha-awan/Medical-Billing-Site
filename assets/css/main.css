@@ -6356,8 +6356,8 @@ section,
   left: 25px;
   width: 55px;
   height: 55px;
-  background: white; /* Blue */
-  color: #001faa;
+  background:var(--accent-color);
+  color: var(--contrast-color);
   border-radius: 50%;
   display: flex;
   align-items: center;

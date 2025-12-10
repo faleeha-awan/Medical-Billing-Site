@@ -145,6 +145,62 @@
   });
 
   // ---------- Chat UI wiring ----------
+  
+// Toggle chat window
+document.getElementById("chat-btn").onclick = function() {
+  document.getElementById("chat-window").style.display = "flex";
+}
+
+document.getElementById("close-chat").onclick = function() {
+  document.getElementById("chat-window").style.display = "none";
+}
+
+// Sending messages
+document.getElementById("send-btn").onclick = sendMessage;
+document.getElementById("user-input").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+  let input = document.getElementById("user-input");
+  let text = input.value.trim();
+  if (!text) return;
+
+  addUserMessage(text);
+  input.value = "";
+
+  // Placeholder bot response (AI later)
+  setTimeout(() => {
+    addBotMessage("Thanks for your message! (AI will answer here later)");
+  }, 500);
+}
+
+function addUserMessage(msg) {
+  let chatBody = document.getElementById("chat-body");
+  let div = document.createElement("div");
+  div.className = "user-message";
+  div.textContent = msg;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addBotMessage(msg) {
+  let chatBody = document.getElementById("chat-body");
+  let div = document.createElement("div");
+  div.className = "bot-message";
+  div.textContent = msg;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// FAQ Button click → put into chat
+document.querySelectorAll(".faq-btn").forEach(btn => {
+  btn.onclick = () => {
+    addUserMessage(btn.textContent);
+    addBotMessage("Fetching answer... (AI will respond later)");
+  };
+});
+
 
 
 
