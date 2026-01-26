@@ -169,9 +169,9 @@ async function sendMessage() {
   addUserMessage(text);
   input.value = "";
 
-  // Send to Worker and get response
+  // Send to local backend and get response
   try {
-    const response = await fetch("https://billsuremd-chatbot-backend.faleehaawan310.workers.dev", {
+    const response = await fetch("http://localhost:3000/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -216,9 +216,9 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
     const text = btn.textContent;
     addUserMessage(text);
 
-    // Send to Worker (same as sendMessage)
+    // Send to local backend (same as sendMessage)
     try {
-      const response = await fetch("https://billsuremd-chatbot-backend.faleehaawan310.workers.dev", {
+      const response = await fetch("http://localhost:3000/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -240,8 +240,4 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
   };
 });
 
-
-
-
-  
 })();
