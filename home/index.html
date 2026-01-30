@@ -1028,7 +1028,7 @@
       if (e.key === "Enter") sendMessage();
     });
 
-    function sendMessage() {
+    async function sendMessage() {
       let input = document.getElementById("user-input");
       let text = input.value.trim();
       if (!text) return;
@@ -1036,10 +1036,31 @@
       addUserMessage(text);
       input.value = "";
 
-      // Placeholder bot response (AI later)
-      setTimeout(() => {
-       addBotMessage("Thanks for your message! (AI will answer here later)");
-      }, 500);
+      addBotMessage("Typing...");
+
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+
+        // Remove typing indicator
+        const chatBody = document.getElementById("chat-body");
+        chatBody.removeChild(chatBody.lastChild);
+
+        if (response.ok) {
+          const data = await response.json();
+          addBotMessage(data.reply);
+        } else {
+          addBotMessage("Sorry, I'm having trouble connecting. Please try again or contact us directly.");
+        }
+      } catch (error) {
+        // Remove typing indicator
+        const chatBody = document.getElementById("chat-body");
+        chatBody.removeChild(chatBody.lastChild);
+        addBotMessage("Sorry, I'm having trouble connecting. Please try again or contact us directly.");
+      }
     }
 
     function addUserMessage(msg) {
@@ -1060,11 +1081,35 @@
       chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // FAQ Button click → put into chat
+    // FAQ Button click → put into chat and get AI response
     document.querySelectorAll(".faq-btn").forEach(btn => {
-      btn.onclick = () => {
-        addUserMessage(btn.textContent);
-        addBotMessage("Fetching answer... (AI will respond later)");
+      btn.onclick = async () => {
+        const question = btn.textContent;
+        addUserMessage(question);
+        addBotMessage("Typing...");
+
+        try {
+          const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: question })
+          });
+
+          // Remove typing indicator
+          const chatBody = document.getElementById("chat-body");
+          chatBody.removeChild(chatBody.lastChild);
+
+          if (response.ok) {
+            const data = await response.json();
+            addBotMessage(data.reply);
+          } else {
+            addBotMessage("Sorry, I couldn't fetch that information. Please contact us directly.");
+          }
+        } catch (error) {
+          const chatBody = document.getElementById("chat-body");
+          chatBody.removeChild(chatBody.lastChild);
+          addBotMessage("Sorry, I couldn't fetch that information. Please contact us directly.");
+        }
       };
     });
   </script>
