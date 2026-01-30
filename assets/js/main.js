@@ -171,7 +171,7 @@ async function sendMessage() {
 
   // Send to local backend and get response
   try {
-    const response = await fetch("http://localhost:3000/chat", {
+    const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -218,7 +218,7 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
 
     // Send to local backend (same as sendMessage)
     try {
-      const response = await fetch("http://localhost:3000/chat", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -1,0 +1,18 @@
+# Environment variables (NEVER commit these!)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Netlify
+.netlify/
+
+# Node (if you add npm packages later)
+# node_modules/
