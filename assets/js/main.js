@@ -171,7 +171,7 @@ async function sendMessage() {
 
   // Send to local backend and get response
   try {
-    const response = await fetch("/.netlify/functions/chat", {
+    const response = await fetch("https://billsuremd.netlify.app/.netlify/functions/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -218,7 +218,7 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
 
     // Send to local backend (same as sendMessage)
     try {
-      const response = await fetch("/.netlify/functions/chat", {
+      const response = await fetch("https://billsuremd.netlify.app/.netlify/functions/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
