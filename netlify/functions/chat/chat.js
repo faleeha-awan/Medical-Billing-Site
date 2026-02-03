@@ -44,10 +44,10 @@ export default async (req, context) => {
     }
 
     // ---------- AI FALLBACK ----------
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
 
     if (!apiKey) {
-      console.error("OPENAI_API_KEY not configured");
+      console.error("GROQ_API_KEY not configured");
       return new Response(JSON.stringify({
         reply: "AI service is temporarily unavailable.",
         source: "error"
@@ -60,14 +60,16 @@ export default async (req, context) => {
       });
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    console.log("Groq key exists:", !!process.env.GROQ_API_KEY);
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "openai/gpt-oss-120b",
         messages: [
           {
             role: "system",
@@ -78,13 +80,17 @@ export default async (req, context) => {
             content: message
           }
         ],
-        max_tokens: 300,
-        temperature: 0.7
+       temperature: 1,
+        max_completion_tokens: 8192,
+        top_p: 1,
+        reasoning_effort: "medium",
+        stream: True,
+        stop: None
       })
     });
 
     if (!response.ok) {
-      console.error("OpenAI API failed");
+      console.error("GROQAI API failed");
       return new Response(JSON.stringify({
         reply: "I'm having trouble answering right now. Please try again later.",
         source: "ai-error"
