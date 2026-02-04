@@ -84,8 +84,6 @@ export default async (req, context) => {
         max_completion_tokens: 8192,
         top_p: 1,
         reasoning_effort: "medium",
-        stream: True,
-        stop: None
       })
     });
 
